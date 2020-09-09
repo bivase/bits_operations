@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "stdafx/stdafx.h"
 
 static std::map<uint64_t, uint8_t> Pos{
 	{ 0x1, 0x00 }, { 0x2, 0x01 }, { 0x4, 0x02 }, { 0x8, 0x03 },
@@ -132,7 +132,7 @@ template<class T>
 void ChangeEndian(T& data)noexcept
 {
 	std::transform(
-		std::execution::par,
+        //std::execution::par,
 		std::cbegin(data), std::cend(data),
 		std::begin(data),
 		change_endian
