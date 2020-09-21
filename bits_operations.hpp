@@ -114,7 +114,7 @@ constexpr auto shl_elm{
 }
 };
 
-constexpr auto change_endian{
+constexpr auto change_bit{
 	[] <class T>(T && byte)noexcept
 {
 	return
@@ -129,12 +129,12 @@ constexpr auto change_endian{
 }
 };
 template<class T>
-void ChangeEndian(T& data)noexcept
+void change_bits(T& data)noexcept
 {
 	std::transform(
         //std::execution::par,
 		std::cbegin(data), std::cend(data),
 		std::begin(data),
-		change_endian
+        change_bit
 	);
 };
